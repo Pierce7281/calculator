@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andor Luxury Jewelry Cost Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <h2>Jewelry Cost Calculator</h2>
+
+    <div class="form-group">
+        <label for="pureGoldRate">Pure Gold Rate (24kt):</label>
+        <input type="number" id="pureGoldRate" placeholder="Enter pure gold rate per gram" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="goldType">Select Gold Type:</label>
+        <select id="goldType">
+            <option value="14kt">14kt Gold</option>
+            <option value="18kt">18kt Gold</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="goldWeight">Gold Weight (in grams):</label>
+        <input type="number" id="goldWeight" placeholder="Enter gold weight in grams" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="labourRate">Labour Rate (per gram):</label>
+        <input type="number" id="labourRate" placeholder="Enter labour rate per gram" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="diamond1Carat">Diamond 1 Carat:</label>
+        <input type="number" id="diamond1Carat" placeholder="Enter Diamond 1 carat weight" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="diamond1Rate">Diamond 1 Rate (per carat):</label>
+        <input type="number" id="diamond1Rate" placeholder="Enter Diamond 1 rate per carat" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="diamond2Carat">Diamond 2 Carat:</label>
+        <input type="number" id="diamond2Carat" placeholder="Enter Diamond 2 carat weight" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="diamond2Rate">Diamond 2 Rate (per carat):</label>
+        <input type="number" id="diamond2Rate" placeholder="Enter Diamond 2 rate per carat" min="0">
+    </div>
+
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <div class="result" id="totalCost">Total Cost: $0.00</div>
+    
+    <div class="footer">
+        <p>© 2024 Andor Luxury | <a href="#">Privacy Policy</a></p>
+    </div>
+</div>
+
+<script>
+    function calculateTotal() {
+        const pureGoldRate = parseFloat(document.getElementById('pureGoldRate').value);
+        const goldType = document.getElementById('goldType').value;
+        const goldWeight = parseFloat(document.getElementById('goldWeight').value);
+        const labourRate = parseFloat(document.getElementById('labourRate').value);
+        const diamond1Carat = parseFloat(document.getElementById('diamond1Carat').value);
+        const diamond1Rate = parseFloat(document.getElementById('diamond1Rate').value);
+        const diamond2Carat = parseFloat(document.getElementById('diamond2Carat').value);
+        const diamond2Rate = parseFloat(document.getElementById('diamond2Rate').value);
+
+        if (isNaN(pureGoldRate) || isNaN(goldWeight) || isNaN(labourRate) || isNaN(diamond1Carat) || isNaN(diamond1Rate) || isNaN(diamond2Carat) || isNaN(diamond2Rate)) {
+            alert('Please fill in all fields with valid numbers');
+            return;
+        }
+
+        const goldPrice14kt = (14 / 24) * pureGoldRate;
+        const goldPrice18kt = (18 / 24) * pureGoldRate;
+
+        let goldPrice = 0;
+        if (goldType === '14kt') {
+            goldPrice = goldWeight * goldPrice14kt;
+        } else if (goldType === '18kt') {
+            goldPrice = goldWeight * goldPrice18kt;
+        }
+
+        const labourCost = goldWeight * labourRate;
+        const diamond1Cost = diamond1Carat * diamond1Rate;
+        const diamond2Cost = diamond2Carat * diamond2Rate;
+
+        const totalCost = goldPrice + labourCost + diamond1Cost + diamond2Cost;
+        document.getElementById('totalCost').innerHTML = 'Total Cost: $' + totalCost.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

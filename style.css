@@ -1,0 +1,104 @@
+
+body {
+    font-family: 'Playfair Display', serif; /* Elegant serif font */
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.app-container {
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 80vh;
+}
+
+.app-container h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif; /* Elegant font for heading */
+    font-size: 28px;
+    color: #ff6f30; /* Orange heading color */
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555; /* Soft gray for labels */
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4caf50; /* Green border for inputs */
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f0f4f8; /* Light input background */
+    color: #333; /* Dark text for inputs */
+    outline: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6f30; /* Orange button */
+    color: #ffffff; /* White text for button */
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65c1b; /* Darker orange on hover */
+}
+
+.result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    color: #4caf50; /* Green for total cost */
+    font-family: 'Playfair Display', serif;
+}
+
+/* Footer style */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777; /* Soft gray for footer text */
+}
+
+.footer a {
+    color: #ff6f30; /* Orange footer link color */
+    text-decoration: none;
+}
